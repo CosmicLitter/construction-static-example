@@ -1,0 +1,17 @@
+{
+	"permissions": {
+		"allow": [
+			"Bash(find /home/brandon/dev/web/static-template -not -path '*/node_modules*' -not -path '*/.svelte-kit/*' -type f -exec ls -lh {} \\\\;)",
+			"Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
+			"mcp__svelte__list-sections",
+			"mcp__svelte__get-documentation",
+			"WebSearch",
+			"WebFetch(domain:github.com)",
+			"WebFetch(domain:cosmicthemes.com)",
+			"WebFetch(domain:sveltejs.github.io)",
+			"WebFetch(domain:sveltekit.io)"
+		]
+	},
+	"enableAllProjectMcpServers": true,
+	"enabledMcpjsonServers": ["svelte"]
+}

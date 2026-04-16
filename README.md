@@ -127,3 +127,4 @@ src/lib/
 - **mdsvex** for markdown → Svelte compilation
 - **@sveltejs/enhanced-img** for build-time image optimization
 - **TypeScript**, **ESLint**, **Prettier**
+# construction-static-example

@@ -1,3 +1,9 @@
+/* ─── Type ──────────────────────────────────────────────────────────────── */
+/* Display: Big Shoulders Display — condensed job-site signage energy.
+   Body: Manrope — humanist sans with warmth, no Inter.
+   Mono: JetBrains Mono — for spec-sheet numerals, labels, serial marks. */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 *,
 *::before,
 *::after {
@@ -7,109 +13,204 @@
 }
 
 :root {
-	/* Primary accent — change this to your brand color */
-	--accent: #2563eb;
-	--accent-light: #60a5fa;
-	--accent-dark: #1d4ed8;
+	/* ─── Palette ─────────────────────────────────────────────────────────── */
+	/* Warm paper & deep ink — materials, not abstractions. */
+	--paper: #f4efe6;
+	--paper-deep: #eae2d2;
+	--paper-shade: #ddd3c0;
 
-	/* Neutrals */
-	--bg: #fafafa;
-	--bg-alt: #ffffff;
-	--text: #1a1a1a;
-	--text-muted: #525252;
-	--text-light: #737373;
-	--border: #e5e5e5;
+	--ink: #14100c;
+	--ink-soft: #3a332c;
+	--ink-faint: #6b6156;
 
-	/* Typography — swap these when adding custom fonts */
-	--font-display: Georgia, 'Times New Roman', serif;
-	--font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	/* Oiled walnut / iron-ore accent — used sparingly, with intent. */
+	--rust: #a24e23;
+	--rust-deep: #7a3818;
+	--rust-bright: #c36434;
+
+	/* Stone / concrete neutrals for rules and dividers. */
+	--stone: #a79e8d;
+	--stone-line: #c9bfae;
+	--stone-thin: #d9cfbd;
+
+	/* Back-compat: map template tokens onto our palette. */
+	--accent: var(--rust);
+	--accent-light: var(--rust-bright);
+	--accent-dark: var(--rust-deep);
+	--bg: var(--paper);
+	--bg-alt: var(--paper-deep);
+	--text: var(--ink);
+	--text-muted: var(--ink-soft);
+	--text-light: var(--ink-faint);
+	--border: var(--stone-line);
+
+	/* ─── Type ────────────────────────────────────────────────────────────── */
+	--font-display: 'Big Shoulders Display', 'Impact', sans-serif;
+	--font-body: 'Manrope', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+	/* ─── Metrics ─────────────────────────────────────────────────────────── */
+	--max-w: 1280px;
+	--max-w-read: 68ch;
+	--pad-x: clamp(1.25rem, 4vw, 3rem);
+	--rule: 1px solid var(--stone-line);
+	--rule-ink: 1px solid var(--ink);
+	--rule-thick: 2px solid var(--ink);
 }
 
 html {
 	scroll-behavior: smooth;
+	background: var(--paper);
 }
 
 body {
 	font-family: var(--font-body);
-	color: var(--text);
-	background: var(--bg);
-	line-height: 1.6;
+	font-weight: 400;
+	color: var(--ink);
+	background: var(--paper);
+	line-height: 1.55;
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	/* Faint paper warmth — subtle radial tint. */
+	background-image:
+		radial-gradient(circle at 20% 30%, rgba(20, 16, 12, 0.022) 0, transparent 40%),
+		radial-gradient(circle at 80% 70%, rgba(20, 16, 12, 0.018) 0, transparent 50%);
 }
 
-/* ─── Skip-to-content link (hidden until Tab-focused) ──────────────────── */
+/* ─── Selection ─────────────────────────────────────────────────────────── */
+::selection {
+	background: var(--ink);
+	color: var(--paper);
+}
 
+/* ─── Base ──────────────────────────────────────────────────────────────── */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+img,
+picture,
+enhanced-img {
+	display: block;
+	max-width: 100%;
+}
+button {
+	font: inherit;
+	color: inherit;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+/* ─── Typography primitives ─────────────────────────────────────────────── */
+
+/* Huge condensed display type. Use for section-scale headlines. */
+.display {
+	font-family: var(--font-display);
+	font-weight: 900;
+	line-height: 0.88;
+	letter-spacing: -0.015em;
+	text-transform: uppercase;
+	color: var(--ink);
+}
+
+/* Small uppercase tracked label — the "EST. 2008" flavor. */
+.label {
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	color: var(--ink-faint);
+}
+.label--ink {
+	color: var(--ink);
+}
+.label--rust {
+	color: var(--rust);
+}
+
+/* Serial number — big monospaced stamp for step/item numbering. */
+.serial {
+	font-family: var(--font-mono);
+	font-weight: 500;
+	font-variant-numeric: tabular-nums;
+	color: var(--rust);
+}
+
+/* Reading prose for mdsvex-rendered markdown bodies. */
+.prose {
+	color: var(--ink-soft);
+	font-size: 1.0625rem;
+	line-height: 1.7;
+	max-width: var(--max-w-read);
+}
+.prose p {
+	margin-bottom: 1.1em;
+}
+.prose p:last-child {
+	margin-bottom: 0;
+}
+.prose strong {
+	color: var(--ink);
+	font-weight: 600;
+}
+.prose a {
+	color: var(--rust);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1px;
+}
+
+/* ─── Skip-to-content ───────────────────────────────────────────────────── */
 .skip-to-content {
 	position: absolute;
 	top: -100%;
 	left: 1rem;
 	z-index: 9999;
 	padding: 0.5rem 1rem;
-	background: var(--accent);
-	color: var(--bg-alt);
-	font-weight: 600;
-	text-decoration: none;
-	border-radius: 0 0 0.25rem 0.25rem;
+	background: var(--ink);
+	color: var(--paper);
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
 }
 .skip-to-content:focus {
 	top: 0;
 }
 
-/* ─── Keyboard focus indicator ─────────────────────────────────────────── */
-
 :focus-visible {
-	outline: 2px solid var(--accent);
-	outline-offset: 2px;
+	outline: 2px solid var(--rust);
+	outline-offset: 3px;
 }
 
-/* ─── Section primitives shared across components ──────────────────────── */
-
+/* ─── Section primitive ─────────────────────────────────────────────────── */
 section {
-	padding: 6rem 2rem;
+	padding: clamp(4rem, 9vw, 7.5rem) var(--pad-x);
 }
-.section-inner {
-	max-width: 1000px;
+.inner {
+	max-width: var(--max-w);
 	margin: 0 auto;
 }
-.section-label {
-	font-size: 0.75rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.2em;
-	color: var(--accent);
-	margin-bottom: 1rem;
-}
-.section-title {
-	font-family: var(--font-display);
-	font-size: clamp(2rem, 4vw, 3rem);
-	font-weight: 700;
-	color: var(--text);
-	margin-bottom: 1rem;
-	letter-spacing: -0.01em;
-}
-.section-intro {
-	font-size: 1.05rem;
-	color: var(--text-muted);
-	max-width: 600px;
-	margin-bottom: 3rem;
-}
 
-/* ─── Fade-in primitive used by IntersectionObserver attachment ─────────── */
-
+/* ─── Fade-in ───────────────────────────────────────────────────────────── */
 .fade-in {
 	opacity: 0;
-	transform: translateY(20px);
+	transform: translateY(18px);
 	transition:
-		opacity 0.6s ease,
-		transform 0.6s ease;
+		opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+		transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .fade-in.visible {
 	opacity: 1;
-	transform: translateY(0);
+	transform: none;
 }
 
-/* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
 	.fade-in {
 		opacity: 1;
 		transform: none;

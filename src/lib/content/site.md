@@ -1,34 +1,39 @@
 ---
-name: My Business
-tagline: A short description of what you do
-location: City, State
-heroTitle: Welcome to My Business
-heroSubtitle: Your tagline or value proposition here
-heroDescription: Replace this with a compelling one-sentence pitch for your business.
-url: https://example.com
-metaTitle: My Business — City, State
-metaDescription: A brief description of your business for search engines.
-ogTitle: My Business
-ogDescription: A brief description of your business for social sharing.
+name: Ironwood Construction Co.
+tagline: Custom homes and renovations built to last
+location: Bozeman, Montana
+heroTitle: Built for the life you live.
+heroSubtitle: Custom homes, thoughtful renovations.
+heroDescription: A family-owned general contractor building durable, beautifully crafted homes across the Gallatin Valley since 2008.
+url: https://ironwoodconstruction.example
+metaTitle: Ironwood Construction Co. — Custom Home Builder in Bozeman, MT
+metaDescription: Family-owned general contractor in Bozeman, Montana. Custom homes, whole-house renovations, additions, and light commercial work since 2008.
+ogTitle: Ironwood Construction Co.
+ogDescription: Custom homes and renovations in Bozeman, MT. Licensed, insured, and built to last.
 ogImage: /og-image.jpg
 address:
-  street: 123 Main Street
-  city: Anytown
-  state: ST
-  zip: '00000'
-phone: (555) 555-0100
-phoneHref: 'tel:+15555550100'
+  street: 214 North Rouse Avenue
+  city: Bozeman
+  state: MT
+  zip: '59715'
+phone: (406) 555-0142
+phoneHref: 'tel:+14065550142'
 hours:
   - days: Monday – Friday
-    time: 9am – 5pm
+    time: 7am – 5pm
   - days: Saturday
-    time: 10am – 2pm
+    time: By appointment
   - days: Sunday
     time: Closed
-hoursShort: 'Mon–Fri 9am–5pm · Sat 10am–2pm · Sun Closed'
+hoursShort: 'Mon–Fri 7am–5pm · Sat by appointment · Sun Closed'
 social:
-  - label: Facebook
-    href: 'https://facebook.com/'
   - label: Instagram
-    href: 'https://instagram.com/'
+    href: 'https://instagram.com/ironwoodconstruction'
+  - label: Facebook
+    href: 'https://facebook.com/ironwoodconstruction'
+  - label: Houzz
+    href: 'https://houzz.com/pro/ironwoodconstruction'
+license: Montana Registered Contractor #123456
+insurance: Fully licensed, bonded, and insured
+serviceArea: Bozeman, Big Sky, Livingston, Belgrade, and the greater Gallatin Valley
 ---

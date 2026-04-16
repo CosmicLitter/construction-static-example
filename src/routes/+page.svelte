@@ -1,21 +1,28 @@
 <script lang="ts">
-	import { site } from '$lib/content';
-	import { fadeIn } from '$lib/fadeIn';
+	import Nav from '$lib/components/Nav.svelte';
+	import Hero from '$lib/components/Hero.svelte';
+	import Highlights from '$lib/components/Highlights.svelte';
+	import About from '$lib/components/About.svelte';
+	import Services from '$lib/components/Services.svelte';
+	import Process from '$lib/components/Process.svelte';
+	import Projects from '$lib/components/Projects.svelte';
+	import Testimonials from '$lib/components/Testimonials.svelte';
+	import Team from '$lib/components/Team.svelte';
+	import Faq from '$lib/components/Faq.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
+<Nav />
+
 <main id="main">
-	<section>
-		<div class="section-inner" style="text-align: center; padding-top: 4rem;">
-			<p class="section-label fade-in" {@attach fadeIn}>{site.location}</p>
-			<h1 class="section-title fade-in" {@attach fadeIn}>
-				{site.heroTitle}
-			</h1>
-			<p class="section-intro fade-in" {@attach fadeIn} style="margin-inline: auto;">
-				{site.heroDescription}
-			</p>
-			<p class="fade-in" {@attach fadeIn} style="font-size: 0.85rem; color: var(--text-light);">
-				{site.hoursShort}
-			</p>
-		</div>
-	</section>
+	<Hero />
+	<Highlights />
+	<Projects />
+	<Services />
+	<Process />
+	<About />
+	<Testimonials />
+	<Team />
+	<Faq />
+	<Footer />
 </main>
